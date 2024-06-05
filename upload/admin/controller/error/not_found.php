@@ -28,6 +28,8 @@ class NotFound extends \Opencart\System\Engine\Controller {
 			'href' => $this->url->link('error/not_found', isset($this->session->data['user_token']) ? 'user_token=' . $this->session->data['user_token'] : '')
 		];
 
+		$this->response->addHeader($this->request->server['SERVER_PROTOCOL'] . ' 404 Not Found');
+
 		$data['header'] = $this->load->controller('common/header');
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['footer'] = $this->load->controller('common/footer');
